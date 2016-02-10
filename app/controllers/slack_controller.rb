@@ -1,6 +1,7 @@
 class SlackController < ApplicationController
   def post_status
     # TODO status_codeを取り出してくる処理の実装
+    status_code = 10
 
     if status_code == 10
       post_status_message '起動しました'
@@ -11,6 +12,8 @@ class SlackController < ApplicationController
     elsif status_code == 30
       post_status_message 'インターネットに繋がっていない可能性があります'
     end
+
+    head :ok
   end
 
   private
