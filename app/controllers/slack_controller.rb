@@ -1,7 +1,7 @@
 class SlackController < ApplicationController
   def post_status
     # TODO status_codeを取り出してくる処理の実装
-    status_code = params[:status_code]
+    status_code = params[:status_code].to_i
 
     if status_code == 10
       post_status_message '起動しました'
