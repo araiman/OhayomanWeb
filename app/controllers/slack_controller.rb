@@ -28,7 +28,7 @@ class SlackController < ApplicationController
   def check_app_active
     loop do
       # 3分毎におはようマンからステータスが送られてくるので、判定の間隔に少し余裕を持たせる
-      $is_app_active? (sleep 180) : break
+      $is_app_active? (sleep 190) : break
       if $has_status_posted
         $has_status_posted = false
       else
