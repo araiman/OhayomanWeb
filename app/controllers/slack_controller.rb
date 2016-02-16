@@ -20,7 +20,7 @@ class SlackController < ApplicationController
   private
 
   def post_status_message message
-    Slack.chat_postMessage text: "[status] #{message}", username: 'おはようマン', channel: '#ohayoman'
+    Slack.chat_postMessage text: "[status] #{message}", username: 'おはようマン', channel: '#status_log'
   end
 
   def check_ohayoman_active
