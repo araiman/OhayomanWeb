@@ -1,17 +1,17 @@
 class SlackController < ApplicationController
   def post_status
     status_code = params[:status_code].to_i
-
     if status_code == 10
       post_status_message '起動しました'
       $is_app_active = true
       $has_status_posted = false
-      Thread.new do
+      $check_app_active_thread = Thread.new do
         check_app_active
       end
     elsif status_code == 11
       post_status_message '停止しました'
       $is_app_active = false
+      Thread::kill $check_app_active_thread
     elsif status_code == 20
       post_status_message '正常に動いています'
       $has_status_posted = true
